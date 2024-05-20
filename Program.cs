@@ -30,19 +30,22 @@ using System.Threading.Tasks.Dataflow;
 
     Console.WriteLine("------CALCULADORA------");
     int opcions = 1;
+    int salir = 1;
 while (opcions == 1)
 {
     Console.WriteLine("----MENU----");
-    Console.WriteLine("1- SUMAR");
-    Console.WriteLine("2- RESTAR");
-    Console.WriteLine("3- MULTIPLICAR");
-    Console.WriteLine("4- DIVIDIR");
-    Console.WriteLine("5- VAlor Absoluto");
+    Console.WriteLine("1- Sumar");
+    Console.WriteLine("2- Restar");
+    Console.WriteLine("3- Multiplicar");
+    Console.WriteLine("4- Dividir");
+    Console.WriteLine("5- Valor Absoluto");
     Console.WriteLine("6- Cuadrado");
     Console.WriteLine("7- Raiz");
     Console.WriteLine("8- Seno");
     Console.WriteLine("9- Coseno");
     Console.WriteLine("10- Parte entera de un numero real");
+    Console.WriteLine("11- Maximo Y Minimo entre 2 numeros");
+    Console.WriteLine("12- Salir");
     Console.WriteLine("INGRESAR OPCION: ");
     int menu=Convert.ToInt32(Console.ReadLine());
     switch (menu)
@@ -121,6 +124,9 @@ while (opcions == 1)
             {
                 float Xabs = Math.Abs(X); 
                 Console.WriteLine("El valor absoluto de "+ X +" es :"+ Xabs);  
+            }else
+            {
+                Console.WriteLine("Lo ingresado no es una Entrada Valida");
             }
         break;
         case 6:
@@ -129,6 +135,9 @@ while (opcions == 1)
             {
                 double Xcuad = Math.Pow(X,2); 
                 Console.WriteLine("El Cuadrado de "+ X +" es : "+ Xcuad);  
+            }else
+            {
+                Console.WriteLine("Lo ingresado no es una Entrada Valida");
             }
         break;
         case 7:
@@ -137,6 +146,9 @@ while (opcions == 1)
             {
                 double Xraiz = Math.Sqrt(X); 
                 Console.WriteLine("La raiz Cuadrada de "+ X +" es : "+ Xraiz);  
+            }else
+            {
+                Console.WriteLine("Lo ingresado no es una Entrada Valida");
             }
         break;
         case 8:
@@ -145,6 +157,9 @@ while (opcions == 1)
             {
                 double Xsen = Math.Sin(X); 
                 Console.WriteLine("El Seno de "+ X +" es : "+ Xsen);  
+            }else
+            {
+                Console.WriteLine("Lo ingresado no es una Entrada Valida");
             }
         break;
         case 9:
@@ -153,6 +168,9 @@ while (opcions == 1)
             {
                 double Xcos = Math.Cos(X); 
                 Console.WriteLine("El Coseno de "+ X +" es : "+ Xcos);  
+            }else
+            {
+                Console.WriteLine("Lo ingresado no es una Entrada Valida");
             }
         break;
         case 10:
@@ -161,9 +179,40 @@ while (opcions == 1)
             {
                 int Xent = Convert.ToInt32(X);
                 Console.WriteLine("El Seno de "+ X +" es : "+ Xent);  
+            }else{
+                Console.WriteLine("Lo ingresado no es una Entrada Valida");
             }
         break;
+        case 11:
+            float mayor = 0;
+            Console.WriteLine("Ingresar Primer Numero: ");
+            if (float.TryParse(Console.ReadLine(),out X))
+            {
+                Console.WriteLine("Ingresar segundo Numero: ");
+                if(float.TryParse(Console.ReadLine(),out Y)){
+                    if (X > Y){
+                        mayor = X;
+                        Console.WriteLine("El numero mayor entre ("+X+","+Y+") es: "+ mayor);
+                    }else{
+                        mayor = Y;
+                        Console.WriteLine("El numero mayor entre ("+X+","+Y+") es: "+ mayor);
+                    }
+                }else
+                {
+                    Console.WriteLine("Lo ingresado no es una Entrada Valida");
+                }
+            }else{
+                Console.WriteLine("Lo ingresado no es una Entrada Valida");
+            }
+        break;
+        case 12:
+        salir = 0;
+        opcions = 0;
+        break;
     }
+    if (salir == 1)
+    {
     Console.WriteLine("Desea hacer otra operacion? (1: Si / 0 : NO)");
     opcions = Convert.ToInt32(Console.ReadLine());
+    }
 }
