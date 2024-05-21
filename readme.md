@@ -4,27 +4,27 @@ En C#, string es un tipo por referencia. Aunque string tiene un comportamiento q
 # 2. ¿Qué secuencias de escape tiene el tipo string?
 Las secuencias de escape en un string en C# permiten incluir caracteres especiales que de otro modo serían difíciles de insertar directamente. Lista de las secuencias de escape más comunes:
 
-\\ - Barra invertida
-\' - Comilla simple
-\" - Comilla doble
-\0 - Carácter nulo
-\a - Alerta (beep)
-\b - Retroceso
-\f - Avance de página
-\n - Nueva línea
-\r - Retorno de carro
-\t - Tabulación horizontal
-\v - Tab
+- \\ - Barra invertida
+- \' - Comilla simple
+- \" - Comilla doble
+- \0 - Carácter nulo
+- \a - Alerta (beep)
+- \b - Retroceso
+- \f - Avance de página
+- \n - Nueva línea
+- \r - Retorno de carro
+- \t - Tabulación horizontal
+- \v - Tab
 ### ulación vertical
 
-\uXXXX - Carácter Unicode (donde XXXX son cuatro dígitos hexadecimales)
-\xXX - Carácter Unicode (donde XX son uno o más dígitos hexadecimales)
+- \uXXXX - Carácter Unicode (donde XXXX son cuatro dígitos hexadecimales)
+- \xXX - Carácter Unicode (donde XX son uno o más dígitos hexadecimales)
 
 # 3. ¿Qué sucede cuando utiliza el carácter @ y $ antes de una cadena de texto?
 En C#, los caracteres @ y $ se utilizan para modificar el comportamiento de las cadenas de texto de las siguientes maneras:
 
 ## Carácter @
-El carácter @ antes de una cadena de texto convierte la cadena en un string literal verbatim. Esto significa que la cadena se interpreta tal como está, ignorando las secuencias de escape. Además, permite que las cadenas se extiendan en varias líneas y se utilicen comillas dobles dobles "" para insertar una comilla doble dentro de la cadena.
+- El carácter @ antes de una cadena de texto convierte la cadena en un string literal verbatim. Esto significa que la cadena se interpreta tal como está, ignorando las secuencias de escape. Además, permite que las cadenas se extiendan en varias líneas y se utilicen comillas dobles dobles "" para insertar una comilla doble dentro de la cadena.
 
                                     string path = @"C:\Users\Nombre\Documentos";
                                     string multiLine = @"Esta es una línea
@@ -32,14 +32,14 @@ El carácter @ antes de una cadena de texto convierte la cadena en un string lit
                                     string quote = @"Él dijo: ""Hola Mundo!""";
 
 ## Carácter $
-El carácter $ antes de una cadena de texto convierte la cadena en una cadena interpolada, lo que permite insertar expresiones dentro de la cadena que serán evaluadas y sus resultados serán incluidos en la cadena.
+- El carácter $ antes de una cadena de texto convierte la cadena en una cadena interpolada, lo que permite insertar expresiones dentro de la cadena que serán evaluadas y sus resultados serán incluidos en la cadena.
 
                                     int a = 5;
                                     int b = 10;
                                     string interpolated = $"El valor de a es {a} y el valor de b es {b}.";
 
 ## Combinación de @ y $
-Se puede combinar @ y $ para crear un string interpolado verbatim. Esto combina las ventajas de ambos modificadores, permitiendo cadenas de varias líneas con interpolación de valores.
+- Se puede combinar @ y $ para crear un string interpolado verbatim. Esto combina las ventajas de ambos modificadores, permitiendo cadenas de varias líneas con interpolación de valores.
 
                                     string nombre = "Juan";
                                     string multilineInterpolated = @$"Hola {nombre},
