@@ -2,10 +2,14 @@
 using System.Runtime.Intrinsics.X86;
 using System.Threading.Tasks.Dataflow;
 using Microsoft.VisualBasic;
+using System;
+using System.Text.RegularExpressions;
 holaMundo();
 revertir();
 calculadora();
 cadenaDeTexto();
+web();
+Email();
 static void holaMundo(){
     Console.WriteLine("Hello, World!");
  int a;
@@ -301,3 +305,41 @@ static void cadenaDeTexto(){
         Console.WriteLine(pruebaString2);
     }
 }
+static void web()
+    {
+        // Solicitar al usuario que ingrese una cadena
+        Console.Write("Ingrese una cadena para verificar si es una dirección web (URL): ");
+        string cadena = Console.ReadLine();
+
+        // Definir el patrón de expresión regular para una URL
+        string patronURL = @"^(http|https)://([\w-]+\.)+[\w-]+(/[\w- ./?%&=]*)?$";
+
+        // Verificar si la cadena coincide con el patrón de URL
+        if (Regex.IsMatch(cadena, patronURL))
+        {
+            Console.WriteLine("La cadena ingresada es una dirección web (URL) válida.");
+        }
+        else
+        {
+            Console.WriteLine("La cadena ingresada NO es una dirección web (URL) válida.");
+        }
+    }
+static void Email()
+    {
+        // Solicitar al usuario que ingrese una cadena
+        Console.Write("Ingrese una cadena para verificar si es una dirección de correo electrónico válida: ");
+        string cadena = Console.ReadLine();
+
+        // Definir el patrón de expresión regular para una dirección de correo electrónico
+        string patronEmail = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+
+        // Verificar si la cadena coincide con el patrón de correo electrónico
+        if (Regex.IsMatch(cadena, patronEmail))
+        {
+            Console.WriteLine("La cadena ingresada es una dirección de correo electrónico válida.");
+        }
+        else
+        {
+            Console.WriteLine("La cadena ingresada NO es una dirección de correo electrónico válida.");
+        }
+    }
